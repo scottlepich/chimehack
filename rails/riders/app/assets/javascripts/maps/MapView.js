@@ -1,4 +1,12 @@
 (function(window, undefined){
+  var LOCATIONS = {
+    bernal: {
+      latlng: [37.738, -122.417],
+      zoom: 15
+    }
+  }
+
+
   var Map = function(selector) {
     var that = this;
 
@@ -8,9 +16,13 @@
       return false;
     };
 
+
+    /*
+      Init Mapbox
+    */
     this.geocoder = L.mapbox.geocoder('examples.map-vyofok3q');
     this.map = L.mapbox.map('map')
-      .setView([37.738, -122.417], 15)
+      .setView(LOCATIONS.bernal.latlng, LOCATIONS.bernal.zoom)
       .addLayer(L.mapbox.tileLayer('examples.map-vyofok3q', {
           detectRetina: true
       }));
