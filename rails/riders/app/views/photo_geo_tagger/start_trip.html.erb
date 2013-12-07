@@ -1,7 +1,14 @@
+<% content_for :body_class, "ioslike" %>
+
 <form action="/photo_geo_tagger/end_trip" method="post" class="newform">
-  <legend><h1>
-    Start your next trip
-  </h1></legend>
+  <legend class="topbar">
+    
+    <input type="reset" value="Cancel" class="button left secondary second-clear">
+    <input type="submit" value="Done" class="button right">
+    <h1>
+      Start your next trip
+    </h1>
+  </legend>
   <table>
     <tr>
       <td>&nbsp;</td>
@@ -52,10 +59,6 @@
         </select>
       </td>
     </tr>
-
-    <tr>
-      <td></td>
-      <td><input type="submit" value="Start Trip" class="button"></td>
-    </tr>
   </table>
+  <input type="submit" value="Done" class="button right">
 </form>
