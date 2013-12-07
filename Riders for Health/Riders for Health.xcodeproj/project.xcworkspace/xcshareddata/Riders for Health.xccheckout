@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>86A1096F-D3E5-4C89-BA63-85C8153755CB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Riders for Health</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FF74D9D5-9ACA-409C-9C59-932C2BE5BBCC</key>
+		<string>ssh://github.com//scottlepich/chimehack</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Riders for Health/Riders for Health.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FF74D9D5-9ACA-409C-9C59-932C2BE5BBCC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com//scottlepich/chimehack</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FF74D9D5-9ACA-409C-9C59-932C2BE5BBCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FF74D9D5-9ACA-409C-9C59-932C2BE5BBCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>chimehack</string>
+		</dict>
+	</array>
+</dict>
+</plist>
