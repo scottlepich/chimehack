@@ -1,0 +1,61 @@
+<form action="/photo_geo_tagger/end_trip" method="post">
+  <table>
+    <tr>
+      <td>Trip ID</td>
+      <td><input type="text" name="id" value="<%= @new_id %>"></td>
+    </tr>
+    <tr>
+      <td>Trip Name</td>
+      <td><input type="text" name="name"></td>
+    </tr>
+
+    <tr>
+      <td>Description</td>
+      <td><input type="text" name="description"></td>
+    </tr>
+
+    <tr>
+      <td>From</td>
+      <td><input type="text" name="from"></td>
+    </tr>
+
+    <tr>
+      <td>To</td>
+      <td><input type="text" name="to"></td>
+    </tr>
+
+    <tr>
+      <td>Vehicle</td>
+      <td>
+        <select name="vehicle">
+          <option value="Honda 250 - 1">Honda 250 - 1</option>
+          <option value="Honda 250 - 2">Honda 250 - 2</option>
+          <option value="Yamaha 200 - 1">Yamaha 200 - 1</option>
+          <option value="Yamaha 200 - 2">Yamaha 200 - 2</option>
+          <option value="Kawasaki 100 - 1">Kawasaki 100 - 1</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Current Fuel</td>
+      <td>
+        <select name="fuel_start">
+          <option value="1">Full</option>
+          <option value=".75">3/4</option>
+          <option value=".50">1/2</option>
+          <option value=".25">1/4</option>
+          <option value=".125">1/8</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Start Trip"></td>
+    </tr>
+
+
+  </table>
+
+</form>

@@ -1,0 +1,114 @@
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+
+<style type="text/css">
+    html {
+        height: 100%
+    }
+
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0
+    }
+
+    #map-canvas {
+        height: 80%;
+        width: 800px;
+    }
+</style>
+
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9XWGKCdbkwvHSDtoLWp-Ll4NRfGCjbL0&sensor=false">
+</script>
+
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(<%= @gps_data[4][1] %>, <%= @gps_data[4][2]%>),
+            zoom: 12
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+
+        var routeCoords = [];
+
+        <% @gps_data.each_with_index do |d, i| %>
+        <%= "routeCoords.push(new google.maps.LatLng(#{d[1]}, #{d[2]}));" %>
+
+        <% if true %>
+        (function () {
+            <% if i == 0 %>
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(<%= d[1] %>, <%= d[2] %>),
+                map: map,
+                title: "position <%= i %>",
+                icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+            });
+            <% elsif i == @gps_data.length - 1 %>
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(<%= d[1] %>, <%= d[2] %>),
+                map: map,
+                title: "position <%= i %>",
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            });
+            <% else %>
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(<%= d[1] %>, <%= d[2] %>),
+                map: map,
+                title: "position <%= i %>",
+                icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            });
+            <% end %>
+
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div style='width: 300px; height: 300px;'>Position #<%= i%> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %><br>Trip Duration: <%= d[4]%> minutes<br><br><img width='300' src='<%= d[3] %>'> </div>"
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })();
+        <% end %>
+
+        <% end %>
+
+        var routePath = new google.maps.Polyline({
+            path: routeCoords,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        routePath.setMap(map);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div style="float: left; margin-bottom: 10px; margin-right: 10px;" id="map-canvas"></div>
+<div>
+  <a href="/">Home</a><br><br>
+
+  <span style="font-weight: bold"><%= @trip_data['name'] %></span><br>
+  <%= @trip_data['description'] %><br><br>
+  <%= @trip_data['from'] %> to <%= @trip_data['to'] %><br><br>
+  Duration: <%= @trip_data['duration'].to_i / 60 %> minutes<br>
+  Vehicle: <%= @trip_data['vehicle'] %><br>
+  Fuel Required: <%= @trip_data['fuel_required'] %> Liters<br>
+</div>
+<div style="clear: both; margin-top: 10px; text-align: center">
+
+</div>
+<div style="padding: 10px; width: 800px;">
+  <% @gps_data.each_with_index do |d, i| %>
+      <div style="float: left; margin-right: 10px;" marker_id="<%= i %>" class="marker_image">
+        <img width="375" src="<%= d[3] %>"><br>
+        Position #<%= i %> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %>
+        <br> Duration: <%= d[4] %> minutes<br><br>
+      </div>
+  <% end %>
+</div>

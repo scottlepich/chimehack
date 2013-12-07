@@ -1,0 +1,18 @@
+
+<div style="text-align: center;">
+
+  Your Trip Has Started. <br><br>
+  GPS Location Recording
+  <br><br>
+  Turn on your GoPro to Record Time Elapse Photos
+
+  <br><br>
+  <form action="/photo_geo_tagger/save_trip_data" method="post">
+    <input type="hidden" name="trip_id" value="<%= params[:id] %>">
+
+
+
+    <input type="submit" value="End Trip">
+  </form>
+
+</div>

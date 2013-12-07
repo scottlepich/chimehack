@@ -1,4 +1,12 @@
 Riders::Application.routes.draw do
+
+  root to: 'photo_geo_tagger#home'
+
+  get "photo_geo_tagger/start_trip"
+  post "photo_geo_tagger/end_trip"
+  post "photo_geo_tagger/save_trip_data"
+  get "photo_geo_tagger/show_trip_map"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
