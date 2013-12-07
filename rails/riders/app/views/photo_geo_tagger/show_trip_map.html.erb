@@ -1,22 +1,5 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
 
-<style type="text/css">
-    html {
-        height: 100%
-    }
-
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0
-    }
-
-    #map-canvas {
-        height: 80%;
-        width: 800px;
-    }
-</style>
-
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9XWGKCdbkwvHSDtoLWp-Ll4NRfGCjbL0&sensor=false">
 </script>
@@ -87,6 +70,36 @@
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    $(document).foundation('orbit', {
+      timer_speed: 0,
+//       pause_on_hover: true,
+//       resume_on_mouseout: false,
+//       animation_speed: 500,
+//       stack_on_small: true,
+//       navigation_arrows: true,
+//       slide_number: true,
+//       container_class: 'orbit-container',
+//       stack_on_small_class: 'orbit-stack-on-small',
+//       next_class: 'orbit-next',
+//       prev_class: 'orbit-prev',
+//       timer_container_class: 'orbit-timer',
+//       timer_paused_class: 'paused',
+//       timer_progress_class: 'orbit-progress',
+//       slides_container_class: 'orbit-slides-container',
+//       bullets_container_class: 'orbit-bullets',
+//       bullets_active_class: 'active',
+//       slide_number_class: 'orbit-slide-number',
+//       caption_class: 'orbit-caption',
+//       active_slide_class: 'active',
+//       orbit_transition_class: 'orbit-transitioning',
+      bullets: false,
+      timer: false,
+//       variable_height: false,
+//       before_slide_change: function(){},
+//       after_slide_change: function(){}
+    });
+
 </script>
 <a class="button left" style="width: 100%; margin-bottom: 0px; padding-bottom: 0px;" href="/">&nbsp;</a>
 <div style="float: left; margin-top: 0px; padding-top: 0px; margin-bottom: 10px; margin-right: 10px;" id="map-canvas"></div>
@@ -107,12 +120,21 @@
 <div style="clear: both; margin-top: 10px; text-align: center">
 
 </div>
-<div style="padding: 10px; width: 800px;">
+
+<%
+=begin %>
+<ul class="slides" data-orbit>
   <% @gps_data.each_with_index do |d, i| %>
-      <div style="float: left; margin-right: 10px;" marker_id="<%= i %>" class="marker_image">
-        <img width="375" src="<%= d[3] %>"><br>
-        Position #<%= i %> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %>
-        <br> Duration: <%= d[4] %> minutes<br><br>
-      </div>
+      <li marker_id="<%= i %>" class="marker_image" data-orbit-slide="<%= i %>">
+        <img width="375" src="<%= d[3] %>">
+        <dl class="orbit-caption">
+            <dt>Position</dt>
+                <dd>#<%= i %> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %></dd>
+            <dt>Duration</dt>
+                <dd><%= d[4] %> minutes</dd>
+        </dl>
+      </li>
   <% end %>
-</div>
+</ul>
+<%
+=end %>
