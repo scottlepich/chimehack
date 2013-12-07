@@ -11,6 +11,7 @@
  *= require_self
  *= require vars
  *= require foundation_and_overrides
+ *= require end_trip
 
  *= require_tree .
  */
