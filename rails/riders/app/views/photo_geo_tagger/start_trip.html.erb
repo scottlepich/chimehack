@@ -1,6 +1,7 @@
 <% content_for :body_class, "ioslike" %>
 
 <form action="/photo_geo_tagger/end_trip" method="post" class="newform">
+  <input type="hidden" name="id" value="<%= @new_id %>">
   <legend class="topbar">
     
     <input type="reset" value="Cancel" class="button left secondary second-clear js-cancel">
@@ -10,10 +11,6 @@
     </h1>
   </legend>
   <table>
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="hidden" name="id" value="<%= @new_id %>"></td>
-    </tr>
     <tr>
       <th>Trip Name</th>
       <td><input type="text" name="name"></td>
