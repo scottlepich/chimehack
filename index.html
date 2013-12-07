@@ -51,6 +51,39 @@
 <!--
     <input type="file" accept="image/*" capture="camera">
  -->
+    <script>
+        (function (window, document) {
+            'use strict';
 
+            var INTERVAL = 1e3;
+            var bttn = document.getElementsByTagName('button')[0];
+
+            // TODO: bail out if no local storage or geolocation
+
+            var getLocation = function () {
+                navigator.geolocation.getCurrentPosition(storeCoords, fail);
+            }
+
+            var storeCoords = function ( geoposition ) {
+                localStorage.setItem(geoposition.timestamp, JSON.stringify(geoposition.coords));
+            }
+
+            var publish = function () {
+
+            }
+
+            var fail = function () {
+//                  TODO
+            }
+
+            var initTrip = function () {
+                window.setInterval(getLocation, INTERVAL);
+            }
+
+            bttn.addEventListener('click', initTrip, false);
+
+// clear            for(key in localStorage) { localStorage.removeItem(key); }
+        })(window, document);
+    </script>
 </body>
 </html>
