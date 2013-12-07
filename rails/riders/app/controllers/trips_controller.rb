@@ -1,5 +1,10 @@
 class TripsController < ApplicationController
 
+  def index
+
+  end
+
+
   def edit
 
   end
@@ -7,7 +12,7 @@ class TripsController < ApplicationController
 
   # playback/data consumption: mapview 
   def show
-
+    render action: :index
   end
 
   # add notes along gps locations during a trip
