@@ -1,22 +1,29 @@
-
 <div style="text-align: center;">
+  <h3>
+    Your Trip Has Started. <br><br>
+    GPS Location Recording
+    <br><br>
+    Turn on your GoPro to Record Time Elapse Photos
+    <br><br>
+    <h4 style="color: green;">Current Location: <span id="loc"></span></h4>
+    <br><br>
+  </h3>
 
-  Your Trip Has Started. <br><br>
-  GPS Location Recording
-  <br><br>
-  Turn on your GoPro to Record Time Elapse Photos
+  <img width="300" src="/gopro.jpg">
+  <img width="200" src="/gps.jpg">
 
-  <br><br>
-  <form action="/photo_geo_tagger/save_trip_data" method="post">
+
+
+  <br><br><br><br>
+
+  <form action="/photo_geo_tagger/save_trip_data" method="post" class="newform">
     <input type="hidden" name="trip_id" value="<%= params[:id] %>">
-
-
-
-    <input type="submit" value="End Trip">
+    <input class="button" type="submit" value="End Trip">
   </form>
-
 </div>
 
 <script>
-    navigator.geolocation.getCurrentPosition(function(position) {});
+    navigator.geolocation.getCurrentPosition(function (position) {
+        $('#loc').html(position.coords.latitude + ', ' + position.coords.longitude);
+    });
 </script>
