@@ -16,14 +16,14 @@
   
   border-right: $size solid $color
 
-@mixin hollow-caret-right($size: 60px, $offset: 4px, $positionRight: 20px, $color: green) 
+@mixin hollow-caret-right($size: 60px, $offset: 4px, $positionRight: 20px, $color: green, $fill: #FFF) 
   &:after
     content: ''
     position: absolute
     right: $size + $offset + $positionRight
     top: 50%
     margin-top: -$size
-    @include arrow-right($size, #FFF)
+    @include arrow-right($size, $fill)
 
   &:before
     content: ''
@@ -33,7 +33,7 @@
     margin-top: -$size
     @include arrow-right($size, $color)
 
-@mixin hollow-caret-left($size: 60px, $offset: 4px, $positionRight: 20px, $color: green) 
+@mixin hollow-caret-left($size: 60px, $offset: 4px, $positionRight: 20px, $color: green, $fill: #FFF) 
   padding-left: $size+$positionRight+30px
 
   &:after
@@ -42,7 +42,7 @@
     left: $size + $offset + $positionRight
     top: 50%
     margin-top: -$size
-    @include arrow-left($size, #FFF)
+    @include arrow-left($size, $fill)
 
   &:before
     content: ''
@@ -64,6 +64,14 @@
 
 .return_home
   @include hollow-caret-left(16px, 4px, 0, #1abc9c)
+
+.caret_right
+  display: inline-block
+  width: 37px
+  position: relative
+  @include hollow-caret-right(10px, 2px, 0, #1abc9c, #333333)
+  vertical-align: middle
+
 
 .topbar, .content
   background-color: #FFF

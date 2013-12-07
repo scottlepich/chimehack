@@ -23,11 +23,10 @@
       $src.data('toggleText', txtBuffer);
 
       if (isHidden) {
-        $src.removeClass('alert').addClass('success');
-      } else {
         $src.removeClass('success').addClass('alert');
+      } else {
+        $src.removeClass('alert').addClass('success');
       }
-
       $target.toggleClass(Slideout.selectors.hide, !isHidden);
 
       // var c = {},
