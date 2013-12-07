@@ -86,8 +86,12 @@ class PhotoGeoTaggerController < ApplicationController
     n.times do
       t = t + 5.minutes
 
-      lat += rand(-150..150) / 10000.0
+      #lat += rand(-150..150) / 10000.0
+      #long += rand(-150..150) / 10000.0
+
+      lat += rand(0..150) / 10000.0
       long += rand(-150..150) / 10000.0
+
 
       data << "#{t.to_i},#{lat},#{long}"
     end

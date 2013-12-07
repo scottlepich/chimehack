@@ -1,1 +1,1 @@
-{"id":"1","name":"Weekly Clinic Checkup","description":"Region A","from":"HQ","to":"Clinic 100A","vehicle":"Honda 250","fuel_start":".75","controller":"photo_geo_tagger","action":"end_trip"}
+{"id":"1","name":"Weekly Checkup","description":"Region A","from":"HQ","to":"Clinic A-100","vehicle":"Honda 250","fuel_start":".75","controller":"photo_geo_tagger","action":"end_trip"}
