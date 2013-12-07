@@ -53,6 +53,7 @@ class PhotoGeoTaggerController < ApplicationController
       f.puts(params.to_json.to_s)
     end
 
+    @trip_data = params
     # display page
   end
 
