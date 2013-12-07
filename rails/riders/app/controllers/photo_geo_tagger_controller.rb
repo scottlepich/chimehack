@@ -63,7 +63,7 @@ class PhotoGeoTaggerController < ApplicationController
     duration = 0
     gps_data.each_with_index do |d, i|
       #d << "/data/trips/#{trip_id}/photos/#{i}.jpg"
-      d << "/data/trips/1/photos/#{i}.jpg"
+      d << "/data/trips/1/photos/#{i}.jpg?v=1"
       duration = d[0].to_i - t
       d << (duration / 60)
     end
