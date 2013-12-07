@@ -1,7 +1,34 @@
 class PhotoGeoTaggerController < ApplicationController
 
+  def home
+    @trips = []
+    (1..10).each do |trip_id|
+      trip_id = trip_id.to_s
+      dir = File.join(Rails.root, 'data', 'trips', trip_id)
+      file_name = File.join(dir, 'trip_data.json')
+
+      if not File.exist?(file_name)
+        next
+      end
+
+      trip_data = JSON.load(File.new(file_name).to_io)
+      @trips << trip_data
+    end
+
+  end
+
   def start_trip
-    # display page
+    @new_id = 1
+    (1..10).each do |trip_id|
+      trip_id = trip_id.to_s
+      dir = File.join(Rails.root, 'data', 'trips', trip_id)
+      file_name = File.join(dir, 'trip_data.json')
+
+      if not File.exist?(file_name)
+        next
+      end
+      @new_id += 1
+    end
   end
 
   def end_trip
@@ -83,14 +110,36 @@ class PhotoGeoTaggerController < ApplicationController
 
     data << "#{t.to_i},#{lat},#{long}"
     n = 10
+
+    x_negative = false
+    if rand(0..1) == 0
+      x_negative = true
+    end
+
+    y_negative = false
+    if rand(0..1) == 0
+      y_negative = true
+    end
+
     n.times do
       t = t + 5.minutes
 
       #lat += rand(-150..150) / 10000.0
       #long += rand(-150..150) / 10000.0
 
-      lat += rand(0..150) / 10000.0
-      long += rand(-150..150) / 10000.0
+      x = rand(0..150) / 10000.0
+      if x_negative
+        x = x * -1
+      end
+
+      y = rand(0..150) / 10000.0
+      if y_negative
+        y = y * -1
+      end
+
+
+      lat += x
+      long += y
 
 
       data << "#{t.to_i},#{lat},#{long}"

@@ -14,7 +14,7 @@
 
     #map-canvas {
         height: 80%;
-        width: 80%;
+        width: 800px;
     }
 </style>
 
@@ -91,22 +91,24 @@
 </script>
 <div style="float: left; margin-bottom: 10px; margin-right: 10px;" id="map-canvas"></div>
 <div>
-  Trip <%= @trip_data['name'] %><br><br>
-  From <%= @trip_data['from'] %><br>
-  To <%= @trip_data['to'] %><br><br>
-  Duration <%= @trip_data['duration'].to_i / 60 %> minutes<br><br>
-  Vehicle <%= @trip_data['vehicle'] %><br>
-  Fuel Required <%= @trip_data['fuel_required'] %> Liters<br>
+  <a href="/">Home</a><br><br>
+
+  <span style="font-weight: bold"><%= @trip_data['name'] %></span><br>
+  <%= @trip_data['description'] %><br><br>
+  <%= @trip_data['from'] %> to <%= @trip_data['to'] %><br><br>
+  Duration: <%= @trip_data['duration'].to_i / 60 %> minutes<br>
+  Vehicle: <%= @trip_data['vehicle'] %><br>
+  Fuel Required: <%= @trip_data['fuel_required'] %> Liters<br>
 </div>
 <div style="clear: both; margin-top: 10px; text-align: center">
 
 </div>
-<div style="text-align: center; margin-left: auto; margin-right: auto; padding: 10px;">
+<div style="padding: 10px; width: 800px;">
   <% @gps_data.each_with_index do |d, i| %>
       <div style="float: left; margin-right: 10px;" marker_id="<%= i %>" class="marker_image">
-        <img width="400" src="<%= d[3] %>"><br>
+        <img width="375" src="<%= d[3] %>"><br>
         Position #<%= i %> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %>
-        <br>Trip Duration: <%= d[4] %> minutes
+        <br> Duration: <%= d[4] %> minutes<br><br>
       </div>
   <% end %>
 </div>
