@@ -1,3 +1,5 @@
+<% content_for :body_class, "ioslike" %>
+
 <script>(function (a, b, c) {
     if (c in b && b[c]) {
         var d, e = a.location, f = /^(a|html)$/i;
@@ -21,14 +23,14 @@
 </header>
 
 
-<div style="padding: 10px;">
+<section class="content">
 
-  <table>
+  <table class="listings">
     <thead>
     <tr>
-      <th width="300">Trip</th>
-      <th width="300">From</th>
-      <th width="300">To</th>
+      <th width="200">Trip</th>
+      <th>From</th>
+      <th>To</th>
     </tr>
     </thead>
     <tbody>
@@ -36,8 +38,12 @@
     <% @trips.each do |trip_data| %>
 
         <tr>
-          <td><a href="photo_geo_tagger/show_trip_map?trip_id=<%= trip_data['id'] %>"><%= trip_data['name'] %></a></td>
-          <td><%= trip_data['from'] %></td>
+          <th class="button">
+            <a href="photo_geo_tagger/show_trip_map?trip_id=<%= trip_data['id'] %>" class="button">
+              <%= trip_data['name'] %>
+            </a>
+          </th>
+          <td class="start"><%= trip_data['from'] %></td>
           <td><%= trip_data['to'] %></td>
 
         </tr>
@@ -48,5 +54,5 @@
   </table>
 
 
-</div>
+</section>
 
