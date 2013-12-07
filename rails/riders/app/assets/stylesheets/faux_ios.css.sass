@@ -8,7 +8,15 @@
   
   border-left: $size solid $color
 
-@mixin hollow-caret($size: 60px, $offset: 4px, $positionRight: 20px, $color: green) 
+@mixin arrow-left($size: 60px, $color: green) 
+  width: 0 
+  height: 0 
+  border-top: $size solid transparent
+  border-bottom: $size solid transparent
+  
+  border-right: $size solid $color
+
+@mixin hollow-caret-right($size: 60px, $offset: 4px, $positionRight: 20px, $color: green) 
   &:after
     content: ''
     position: absolute
@@ -25,7 +33,28 @@
     margin-top: -$size
     @include arrow-right($size, $color)
 
-body
+@mixin hollow-caret-left($size: 60px, $offset: 4px, $positionRight: 20px, $color: green) 
+  padding-left: $size+$positionRight+30px
+
+  &:after
+    content: ''
+    position: absolute
+    left: $size + $offset + $positionRight
+    top: 50%
+    margin-top: -$size
+    @include arrow-left($size, #FFF)
+
+  &:before
+    content: ''
+    position: absolute
+    left: $size + $positionRight
+    top: 50%
+    margin-top: -$size
+    @include arrow-left($size, $color)
+
+
+.return_home
+  @include hollow-caret-left(16px, 4px, 0, #1abc9c)
 
 .topbar, .content
   background-color: #FFF
@@ -60,6 +89,9 @@ body
   border-top: 1px solid $ios_border_minor
 
 
+.header_sans_margin
+  .topbar, .bottombar
+    margin: 0
 
 .content
   
@@ -153,4 +185,4 @@ body
 
         td.start
           position: relative
-          @include hollow-caret(16px, 4px, 20px, #1abc9c)
+          @include hollow-caret-right(16px, 4px, 20px, #1abc9c)
