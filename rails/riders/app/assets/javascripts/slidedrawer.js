@@ -18,14 +18,14 @@
     toggle: function($src, $target) {
       var isHidden = $target.hasClass(Slideout.selectors.hide),
           txtBuffer;
-      txtBuffer = $src.text();
-      $src.text($src.data('toggleText'));
+      txtBuffer = $src.html();
+      $src.html($src.data('toggleText'));
       $src.data('toggleText', txtBuffer);
 
       if (isHidden) {
-        $src.removeClass('success').addClass('alert');
+        $src.removeClass('success').addClass('secondary second-clear');
       } else {
-        $src.removeClass('alert').addClass('success');
+        $src.removeClass('secondary second-clear').addClass('success');
       }
       $target.toggleClass(Slideout.selectors.hide, !isHidden);
 
