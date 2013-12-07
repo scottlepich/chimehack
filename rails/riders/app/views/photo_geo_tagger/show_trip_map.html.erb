@@ -30,6 +30,11 @@
                 title: "position <%= i %>",
                 icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div style='width: 300px; height: 300px;'>Position #<%= i%> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %><br>Duration: <%= d[4]%> minutes<br><br><img width='300' src='<%= d[3] %>'> </div>"
+            });
+
             <% elsif i == @gps_data.length - 1 %>
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(<%= d[1] %>, <%= d[2] %>),
@@ -37,6 +42,11 @@
                 title: "position <%= i %>",
                 icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div style='width: 300px; height: 300px;'>Position #<%= i%> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %><br>Duration: <%= d[4]%> minutes<br><br><img width='300' src='<%= d[3] %>'> </div>"
+            });
+
             <% else %>
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(<%= d[1] %>, <%= d[2] %>),
@@ -44,12 +54,12 @@
                 title: "position <%= i %>",
                 icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
             });
-            <% end %>
-
 
             var infowindow = new google.maps.InfoWindow({
                 content: "<div style='width: 300px; height: 300px;'>Position #<%= i%> at <%= Time.at(d[0].to_i).strftime("%m/%d/%Y %I:%M %p") %><br>Duration: <%= d[4]%> minutes<br><br><img width='300' src='<%= d[3] %>'> </div>"
             });
+
+            <% end %>
 
             google.maps.event.addListener(marker, 'click', function () {
                 infowindow.open(map, marker);
