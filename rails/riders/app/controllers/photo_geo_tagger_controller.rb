@@ -29,6 +29,14 @@ class PhotoGeoTaggerController < ApplicationController
       end
       @new_id += 1
     end
+
+    respond_to do |format|
+      format.html
+
+      format.json {
+        render_to_string 'start_trip'
+      }
+    end
   end
 
   def end_trip
