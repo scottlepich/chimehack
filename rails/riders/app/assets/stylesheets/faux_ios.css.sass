@@ -52,6 +52,15 @@
     margin-top: -$size
     @include arrow-left($size, $color)
 
+#info
+  position: absolute
+  bottom: 20px
+  right: 20px
+  width: 250px
+
+  &.hidden
+    opacity: 0
+    -webkit-transition: all .3s linear
 
 .return_home
   @include hollow-caret-left(16px, 4px, 0, #1abc9c)
