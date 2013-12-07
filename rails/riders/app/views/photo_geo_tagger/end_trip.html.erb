@@ -21,13 +21,15 @@
 
   <img width="300" src="/gopro.jpg">
   <img width="200" src="/gps.jpg">
-
+<section class="controls">
   <input type="file" accept="image/*;capture=camera">
 
   <form action="/photo_geo_tagger/save_trip_data" method="post" class="newform">
     <input type="hidden" name="trip_id" value="<%= params[:id] %>">
     <input class="button" type="submit" value="End Trip">
   </form>
+</section>
+
 </div>
 
 <script>
