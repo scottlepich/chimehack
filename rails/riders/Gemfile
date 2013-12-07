@@ -41,3 +41,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem "mini_exiftool", "~> 2.3.0"
+
+gem 'foundation-rails'

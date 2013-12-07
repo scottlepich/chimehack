@@ -63,7 +63,7 @@ class PhotoGeoTaggerController < ApplicationController
     duration = 0
     gps_data.each_with_index do |d, i|
       #d << "/data/trips/#{trip_id}/photos/#{i}.jpg"
-      d << "/data/trips/1/photos/#{i}.jpg"
+      d << "/data/trips/1/photos/#{i}.jpg?v=1"
       duration = d[0].to_i - t
       d << (duration / 60)
     end
@@ -109,7 +109,7 @@ class PhotoGeoTaggerController < ApplicationController
     long = 27.49160
 
     data << "#{t.to_i},#{lat},#{long}"
-    n = 10
+    n = rand(10..20)
 
     x_negative = false
     if rand(0..1) == 0
@@ -122,7 +122,7 @@ class PhotoGeoTaggerController < ApplicationController
     end
 
     n.times do
-      t = t + 5.minutes
+      t = t + rand(5..10).minutes
 
       #lat += rand(-150..150) / 10000.0
       #long += rand(-150..150) / 10000.0
