@@ -1,3 +1,5 @@
+<% content_for :body_class, "ioslike header_sans_margin" %>
+
 <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
 
 <script type="text/javascript"
@@ -101,26 +103,32 @@
     });
 
 </script>
-<a class="button left" style="width: 100%; margin-bottom: 0px; padding-bottom: 0px;" href="/">&nbsp;</a>
-<div style="float: left; margin-top: 0px; padding-top: 0px; margin-bottom: 10px; margin-right: 10px;" id="map-canvas"></div>
-<div>
-  <div>
-    <br><br><br>
-    <span style="font-weight: bold"><%= @trip_data['name'] %></span><br><br>
-    <%= @trip_data['description'] %>
-    <br><br>
-    <%= @trip_data['from'] %> to <%= @trip_data['to'] %>
-    <br><br>
-    <span class="label">Duration</span> <%= @trip_data['duration'].to_i / 60 %> minutes<br><br>
-    <span class="label">Vehicle</span> <%= @trip_data['vehicle'] %>
-    <br><br>
-    <span class="label">Fuel Required</span> <%= @trip_data['fuel_required'] %> Liters<br><br>
-  </div>
-</div>
-<div style="clear: both; margin-top: 10px; text-align: center">
+<header class="topbar">
+  <a class="button left secondary second-clear return_home" href="/">Home</a>
+  <a class="button right" href="/photo_geo_tagger/start_trip">New Trip</a>
+  <h1><%= @trip_data['name'] %></h1>
 
-</div>
+</header>
 
+<!-- <section class="content"> -->
+    <div style="float: left; margin-top: 0px; padding-top: 0px; margin-bottom: 10px; margin-right: 10px;" id="map-canvas"></div>
+    <div>
+      <div>
+        <br><br><br>
+        <%= @trip_data['description'] %>
+        <br><br>
+        <%= @trip_data['from'] %> to <%= @trip_data['to'] %>
+        <br><br>
+        <span class="label">Duration</span> <%= @trip_data['duration'].to_i / 60 %> minutes<br><br>
+        <span class="label">Vehicle</span> <%= @trip_data['vehicle'] %>
+        <br><br>
+        <span class="label">Fuel Required</span> <%= @trip_data['fuel_required'] %> Liters<br><br>
+      </div>
+    </div>
+    <div style="clear: both; margin-top: 10px; text-align: center">
+
+    </div>
+<!-- </section> -->
 <%
 =begin %>
 <ul class="slides" data-orbit>
