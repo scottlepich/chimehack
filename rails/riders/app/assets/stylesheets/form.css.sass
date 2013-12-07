@@ -1,18 +1,30 @@
 .newform
+  .topbar
+    border-bottom: 0px
+
   table
     width: 100%
 
     input, select
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+      font-weight: 300
 
     th
       text-align: left
       font-weight: 500
       font-size: 1.1em
       color: #0078a0
+      width: 200px
 
     td
       font-size: 1.35em
 
     input, select, select:after
       font-size: 1em
+
+    input[type=text] 
+      padding: 1em .4em
+
+    // override striping
+    tr:nth-of-type(even) 
+      background-color: transparent
