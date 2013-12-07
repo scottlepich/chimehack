@@ -1,1 +1,1 @@
-{"id":"2","name":"Monthly Inspection","description":"Inspect Clinics","from":"HQ","to":"Clinic 200","vehicle":"Yamaha 200 - 2","fuel_start":".75","controller":"photo_geo_tagger","action":"end_trip"}
+{"id":"2","name":"Monthly Supply Check","description":"Hand out supplies to all local clinics.","from":"Downtown","to":"Teso Hospital","vehicle":"Kawasaki 100 #1","fuel_start":".75","controller":"photo_geo_tagger","action":"end_trip"}

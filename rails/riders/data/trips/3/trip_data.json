@@ -1,1 +1,1 @@
-{"id":"3","name":"Outbreak in Region C","description":"Emergency Visit","from":"Clinic C","to":"Clinic D","vehicle":"Honda 250 - 2","fuel_start":".50","controller":"photo_geo_tagger","action":"end_trip"}
+{"id":"3","name":"New Patient Follow-up","description":"Followup to all new patients in the last 3 months.","from":"HQ Annex Building","to":"Post 5A Taba","vehicle":"Yamaha 200 #1","fuel_start":".25","controller":"photo_geo_tagger","action":"end_trip"}

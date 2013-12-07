@@ -1,11 +1,1 @@
-{
-  "id": "1",
-  "name": "Weekly Checkup",
-  "description": "For Region A",
-  "from": "HQ",
-  "to": "Hospital A100",
-  "vehicle": "Kawasaki 100 - 1",
-  "fuel_start": ".75",
-  "controller": "photo_geo_tagger",
-  "action": "end_trip"
-}
+{"id":"1","name":"Q4 AIDS Outreach Region 2","description":"Fourth quarter outreach for region 2.","from":"HQ","to":"Clinic 23","vehicle":"Honda 250 #2","fuel_start":".75","controller":"photo_geo_tagger","action":"end_trip"}
