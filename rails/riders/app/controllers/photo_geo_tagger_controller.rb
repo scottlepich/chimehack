@@ -1,4 +1,5 @@
 class PhotoGeoTaggerController < ApplicationController
+  include ApplicationHelper
 
   def home
     @trips = []
@@ -75,6 +76,57 @@ class PhotoGeoTaggerController < ApplicationController
     @trip_data = JSON.load(File.new(file_name).to_io)
     @trip_data['duration'] = duration
     @trip_data['fuel_required'] = @trip_data['fuel_start'].to_f - @trip_data['fuel_end'].to_f
+
+    #@trip_data = {
+    #    :name => 'weekly checkup',
+    #    :from => 'abc',
+    #    :to => 'xyz',
+    #    :duration => duration,
+    #    :vehicle => 'Honda 250',
+    #    :fuel_required => '2.5 Liters'
+    #}
+  end
+
+  # Ni's mapbox version
+  def show_trip
+    trip_id = params[:trip_id]
+    dir = File.join(Rails.root, 'data', 'trips', trip_id)
+    file_name = File.join(dir, 'gps_data.txt')
+    gps_data = File.readlines(file_name)
+    gps_data.map! { |l| l.chomp }
+
+    gps_data.map! do |d|
+      d.split(',')
+    end
+
+    t = gps_data[0][0].to_i
+    duration = 0
+    gps_data.each_with_index do |d, i|
+      #d << "/data/trips/#{trip_id}/photos/#{i}.jpg"
+      d << "/data/trips/1/photos/#{i}.jpg"
+      duration = d[0].to_i - t
+      d << (duration / 60)
+    end
+
+    @gps_data = gps_data
+
+    dir = File.join(Rails.root, 'data', 'trips', trip_id)
+    file_name = File.join(dir, 'trip_data.json')
+    @trip_data = JSON.load(File.new(file_name).to_io)
+    @trip_data['duration'] = duration
+    @trip_data['fuel_required'] = @trip_data['fuel_start'].to_f - @trip_data['fuel_end'].to_f
+
+    # @map_data = {
+    #   latlng: [@gps_data[4][1], @gps_data[4][2]],
+    #   zoom: 12,
+    #   markers: @gps_data.map {|datum| {latlng: [datum[1], datum[2]]}}
+    # }
+    @map_data = []
+    @gps_data.each_with_index do |datum, i|
+      @map_data << latlng_to_geojson_point([datum[1], datum[2]], {title: "Point #{i}", description: "Description #{i}"})
+    end
+
+    @latlng = @gps_data.map {|datum| [datum[1], datum[2]]}
 
     #@trip_data = {
     #    :name => 'weekly checkup',

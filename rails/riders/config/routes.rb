@@ -6,6 +6,7 @@ Riders::Application.routes.draw do
   post "photo_geo_tagger/end_trip"
   post "photo_geo_tagger/save_trip_data"
   get "photo_geo_tagger/show_trip_map"
+  get "photo_geo_tagger/show_trip"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
