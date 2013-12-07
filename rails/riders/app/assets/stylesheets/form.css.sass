@@ -1,23 +1,38 @@
 .newform
-  .topbar
-    border-bottom: 0px
 
   table
     width: 100%
+    border: 0
+    margin-bottom: 2em
 
     input, select
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
       font-weight: 300
 
+    input
+      border-color: transparent
+      
+      &:focus
+        border-color: transparent
+
+
+    th, td
+      vertical-align: middle
+      border-bottom: 1px solid #F5F5F5
+
+      tr:first-child &
+        border-top: 1px solid #F5F5F5
+
     th
       text-align: left
       font-weight: 500
-      font-size: 1.1em
-      color: #0078a0
+      font-size: 1em
       width: 200px
 
     td
       font-size: 1.35em
+      input, select
+        margin: 0
 
     input, select, select:after
       font-size: 1em
