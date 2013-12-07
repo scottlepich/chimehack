@@ -1,36 +1,78 @@
-<header class="topbar">
-<!--   <a class="button left secondary second-clear return_home" href="/">Home</a>
+<form action="/photo_geo_tagger/save_trip_data" method="post" class="newform">
+  <header class="topbar">
+  <a class="button left secondary second-clear return_home" href="/">Home</a>
 
- --><!-- 
+
+ <!-- 
   <a class="button right alert" data-toggle="slideout" data-toggle-text="More Info" href="#info">Hide Info
-  </a> -->
+  </a>-->
+  <input class="button alert right" type="submit" value="End Trip">
 
-  <h1>Your Trip Has Started</h1>
+  <input type="hidden" name="trip_id" value="<%= params[:id] %>">
+  <h1>Recording trip: <%= @trip_data['name'] %></h1>
 </header>
 
 <div style="text-align: center;">
-  <h3>
-    XXXXX<%= @trip_data['name'] %>XXXXX
-    Your Trip Has Started. <br><br>
-    GPS Location Recording
-    <br><br>
-    Turn on your GoPro to Record Time Elapse Photos
-    <br><br>
-    <h4 style="color: green;">Current Location: <span id="loc"></span></h4>
-    <br><br>
-  </h3>
 
-  <img width="300" src="/gopro.jpg">
-  <img width="200" src="/gps.jpg">
-<section class="controls">
-  <input type="file" accept="image/*;capture=camera">
+    <ul class="pricing-table timeline">
+      <li class="bullet-item line-item">
 
-  <form action="/photo_geo_tagger/save_trip_data" method="post" class="newform">
-    <input type="hidden" name="trip_id" value="<%= params[:id] %>">
-    <input class="button" type="submit" value="End Trip">
-  </form>
-</section>
+        foo
+  
+      </li>
+      <li class="bullet-item line-item">
 
+        foo
+  
+      </li>
+      <li class="bullet-item line-item">
+
+        foo
+  
+      </li>
+      <li class="bullet-item line-item">
+
+        foo
+  
+      </li>
+      <li class="bullet-item line-item">
+
+        foo
+  
+      </li>
+      <li class="bullet-item line-item line-item-next">
+
+        foo
+  
+      </li>
+    </ul>
+
+    <aside id="info" class="bump">
+    <ul class="pricing-table recording">
+      <li class="title">
+        <%= @trip_data['from'] %>
+        <i class="caret_right"></i>
+        <%= @trip_data['to'] %></li>
+      <li class="price"><%= @trip_data['description'] %></li>
+      <!-- <li class="description">An awesome description</li> -->
+      <li class="bullet-item"><span class="label">Duration</span> <%= @trip_data['duration'].to_i / 60 %> minutes</li>
+      <li class="bullet-item"><span class="label">Vehicle</span> <%= @trip_data['vehicle'] %></li>
+      <li class="bullet-item">
+
+        <a class="button fillout secondary second-clear" data-target="#camfile">
+          <aside  class="filler">
+          <img src="<%=asset_path('camera-white')%>.png"></aside>
+          <input id="camfile" type="file" accept="image/*;capture=camera">
+        </a>
+
+  
+  
+      </li>
+    </ul>
+
+  </aside>
+
+</form>
 </div>
 
 <script>
