@@ -1,20 +1,9 @@
-img
-  margin-bottom: 3em
-
-body div input[type="file"]
-//  visibility: hidden
-  width: 0
-  height: 0
-  align-items: baseline
-  color: inherit
-  text-align: center
-  padding: initial
-  background-color: initial
-  border: initial
-  -webkit-appearance: initial
-  -webkit-font-smoothing: antialiased
+.controls
+  display: block
+  margin-top: 3em
 
 input[type="file"]::-webkit-file-upload-button
+  -webkit-appearance: none
   visibility: hidden
 
 input[type="file"]::before
@@ -35,8 +24,21 @@ input[type="file"]::before
   font-weight: 700
   font-size: 10pt
   width: 105px
-  height: 27px
-  margin: 0 auto
+  margin: 1.75em auto 0
 
 input[type=file]:hover:before
   border-color: black
+
+input[type="file"]
+  visibility: visible // BUG: sass needs this for whatever reason, otherwise sass won't generate this style
+  width: 237px
+//  height: 0
+//  align-items: baseline
+//  color: inherit
+//  text-align: center
+//  padding: initial
+//  background-color: initial
+//  border: initial
+//  -webkit-appearance: initial
+//  -webkit-font-smoothing: antialiased
+
